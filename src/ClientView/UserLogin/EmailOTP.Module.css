@@ -1,0 +1,15 @@
+.textbox{
+    width: 25rem;
+    margin-left: 20%;
+    margin-bottom: 2%;
+}
+.btns{
+    display: flex;
+    flex-direction: row;
+    margin-left: 40%;
+}
+.otpImage img{
+    width: 10rem;
+    border-radius: 3%;
+    margin-left: 40%;
+}

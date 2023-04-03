@@ -1,0 +1,29 @@
+.product_grid{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: black;
+  }
+ 
+  .product_item {
+    background-color: black;
+    width: 60%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .product_image img {
+    width: 100%;
+  }
+  
+  .product_details {
+    margin-top: 10px;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .product_item {
+      width: 10%;
+    }
+  }
+  

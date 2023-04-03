@@ -1,0 +1,87 @@
+/* .container{
+  font-size: 2rem;
+  margin-top: -30px;
+}
+
+.btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+
+  .profile-image-pic{
+    height: 130px;
+    width: 130px;
+    object-fit: cover;
+  }
+  
+  .login_body{
+    width: 100%;
+  }
+
+  
+  .card_body{
+    background-color:white;
+    color: white;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+
+  .cardLogin{
+    font-size: 4rem;
+    width: 80%;
+    height: 260%;
+    background-color: white;
+    border-radius: 5%;
+  }
+
+  .userRegister{
+    color: black;
+    font-size: 20px;
+  } */
+
+  .container{
+    font-size: 2rem;
+    margin-top: -30px;
+  }
+  
+  .btn-color{
+      background-color: #0e1c36;
+      color: #fff;
+      
+    }
+  
+    .profile-image-pic{
+      height: 130px;
+      width: 130px;
+      object-fit: cover;
+    }
+    
+    .login_body{
+      width: 100%;
+    }
+  
+    
+    .card_body{
+      background-color:white;
+      color: white;
+    }
+    
+    a{
+      text-decoration: none;
+    }
+  
+    .cardLogin{
+      font-size: 4rem;
+      width: 80%;
+      height: 260%;
+      background-color: white;
+      border-radius: 5%;
+    }
+  
+    .userRegister{
+      color: black;
+      font-size: 20px;
+    }

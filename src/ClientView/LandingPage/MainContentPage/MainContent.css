@@ -1,0 +1,48 @@
+.Mainbody{
+    width:20rem;
+}
+.card {
+    margin-top: 60px;
+    height: 10px;
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+}
+#img{
+    height: 200px;
+    width: 170px;
+    background-color: black;
+}
+.category-card{
+    background-color: black;
+}
+
+.card-block{
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10rem;
+}
+.sub-card{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+.card-block img{
+    margin-left: 30px;
+    height: 16rem;
+    width: 28rem;
+    border-radius: 20px;
+}
+
+#brandimg{
+    height: 120px;
+    width: 120px;
+    background-color: black;
+    border-radius: 90px;
+    margin-left: 40px;
+}
+#brand-card{
+    margin-left: 40px;
+}

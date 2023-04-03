@@ -1,0 +1,47 @@
+.register-body{
+  background-color: white;
+  width: 50%;
+  margin-left: 27%;
+  margin-top: 30px;
+  font-size: 20px;
+}
+.register-body label{
+  font-size: 20px;
+}
+
+.btn-color{
+    background-color: #0e1c36;
+    color: #fff;
+    
+  }
+  
+  .profile-image-pic{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+  }
+  
+  
+  
+  .cardbody-color{
+    background-color: #ebf2fa;
+  }
+  
+  a{
+    text-decoration: none;
+  }
+
+  .register-input{
+    height: 40px;
+    width: 90%;
+    font-size: 20px;
+  }
+  .btns{
+    display: inline;
+  }
+  .btns button{
+    margin-left: 20px;
+    width: 30%;
+    margin-bottom: 17px;
+    margin-top: 20px;
+  }

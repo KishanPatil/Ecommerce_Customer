@@ -1,0 +1,19 @@
+.brand-card{
+  width: 80%;
+  height: 60%;
+  margin-left: 26px;
+}
+
+.brand-card img{
+  border-radius: 7%;
+}
+.brand-img{
+  transition: transform 0.3s ease-in-out;
+}
+
+.brand-img:hover{
+  transform: scale(1.1);
+}
+.text{
+  font-size: 24px;
+}
