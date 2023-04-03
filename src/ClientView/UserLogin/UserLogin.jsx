@@ -17,7 +17,7 @@ function UserLogin() {
     try {
       const response = await axios.get(`http://localhost:3009/customer/customers/${email}`);
       console.log(response.data);
-      if (response.data.email !== email || response.data.password !== password) {
+      if (response.data.result.email !== email || response.data.result.password !== password) {
         alert('Invalid email or password');
         return;
       }
