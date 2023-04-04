@@ -82,7 +82,7 @@ export const Cart = () => {
       <div className='cart-card'>
         <ListGroup className='mt-4 '>
           {cart.products.map((product) => (
-            <ListGroup.Item key={product._id} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', backgroundColor: 'black', color: 'white', border: '1px solid grey' }}>
+            <ListGroup.Item key={product._id} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', backgroundColor: '#303030', color: 'white', border: '1px solid grey' }}>
               <div style={{ height: '100px', width: '100px', marginRight: '20px' }}>
                 <img src={product.productid.image} alt="" style={{ height: '100%', width: '100%' }} />
               </div>

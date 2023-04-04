@@ -5,7 +5,8 @@ import { Image, Row, Col, ListGroup, ListGroupItem, Button } from 'react-bootstr
 import './SinglePRoductView.css';
 import ClientNavBar from '../../ClientView/LandingPage/Navbar/ClinetNavBar';
 import { Link } from 'react-router-dom';
-import {faSolarSystem} from '@fortawesome/free-solid-svg-icons'
+import { faSolarSystem, faTruck, faHandshake } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Comment from '../CommentComponent/Comment';
 
 
@@ -115,7 +116,7 @@ export const SingleProductView = () => {
               </Row>
               <Row className='card-style'>
                 <Col md={2}>
-                <i class="fa-light fa-solar-system"></i>
+                <i class="fa-light fa-handshake"></i>
                 
                 </Col>
                 <Col>
