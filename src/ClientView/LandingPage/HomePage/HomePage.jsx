@@ -10,17 +10,17 @@ export default function HomePage() {
 
 
     return (
-        <div className='Homebody' style={{backgroundColor:"black"}}>
+        <div className='Homebody' style={{backgroundColor:"#303030"}}>
             {/* Navbar */}
             <ClientNavBar />
 
             {/* Carousal */}
-            <div style={{ backgroundColor: "black" ,marginTop :"30px"}}>
+            <div style={{ backgroundColor: "#303030" ,marginTop :"30px"}}>
                 <Carousal />
             </div>
             
             {/* Content */}
-            <div style={{ backgroundColor: "black" }}>
+            <div >
                 <MainContent />
             </div>
 

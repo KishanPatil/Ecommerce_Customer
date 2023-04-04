@@ -41,14 +41,14 @@ export default function ClientNavBar({ onSearch, onSearchClick }) {
   }
 
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar  expand="lg shadow-lg" style={{backgroundColor:'#373639'}} sticky="top">
       <Container fluid>
-        <Navbar.Brand href="" style={{ color: "white", textDecoration: "none", fontSize: "large" }}>EKarto</Navbar.Brand>
+        <Navbar.Brand href="/" style={{ color: "white", textDecoration: "none", fontSize: "large" }}>EKarto</Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto my-2 my-lg-0 " style={{ maxHeight: '100px' }} navbarScroll>
-            <Nav.Link ><Link to='/' className=' ml-2' style={{ color: "white", textDecoration: "none" }}>  Home </Link></Nav.Link>
-            <Nav.Link href="#" ><Link className=' ml-2' to='/product' style={{ color: "white", textDecoration: "none" }}> Products</Link></Nav.Link>
+            <Nav.Link ><Link to='/' className=' ml-2 ' style={{ color: "white", textDecoration: "none" }}>  Home </Link></Nav.Link>
+            <Nav.Link href="#" ><Link className=' ml-2 effect' to='/product' style={{ color: "white", textDecoration: "none" }}> Products</Link></Nav.Link>
             <Nav.Link ><Link className=' ml-2' to='/category' style={{ color: "white", textDecoration: "none" }}> Category</Link></Nav.Link>
             <Nav.Link ><Link className=' ml-2' to='/brand' style={{ color: "white", textDecoration: "none" }}> Brand</Link></Nav.Link>
 
@@ -60,18 +60,15 @@ export default function ClientNavBar({ onSearch, onSearchClick }) {
               onChange={(e) => {
                 setSdata(e.target.value); console.log("Searched data:", e.target.value);
               }} />
-            <Button variant="outline-success" className='ml-2'
-              onClick={handleSubmit}
-            >Search</Button>
+            <Button  variant='outline-secondary' className='btn btn-dark ml-2'
+              onClick={handleSubmit} style={{color:'white'}}>Search</Button>
           </Form>
 
 
           {isLoggedIn ? (
             <>
               
-              <Nav.Link >
-                <Link to={`/orderpage`} className='mr-3 ml-2 '  style={{ color: "white", textDecoration: "none" }}>Order</Link>
-              </Nav.Link>
+              
 
               {/* <Nav.Link >
                 <Link to="/cart" className='mr-2 ml-2'><i class="fa-solid fa-cart-shopping" style={{ fontSize: '30px', color: 'white' }}></i></Link>
@@ -79,22 +76,25 @@ export default function ClientNavBar({ onSearch, onSearchClick }) {
               <Nav.Link>
                 <Link to={`/user`} className='mr-5'><i class="fa-solid fa-user" style={{ fontSize: '30px', color: 'white' }}></i></Link>
               </Nav.Link> */}
-                <Button className="btn btn-primary ml-5" onClick={logoutUser} style={{ color: 'white',float: "left" }}>Logout</Button>
+                <Button variant='outline-secondary' className="btn btn-dark ml-5" onClick={logoutUser} style={{ color: 'white',float: "left" }}>Logout</Button>
                 <Nav.Link >
                 <Link to="/cart" className='mr-2 ml-2'><i class="fa-solid fa-cart-shopping" style={{ fontSize: '30px', color: 'white' }}></i></Link>
               </Nav.Link>
               <Nav.Link>
-                <Link to={`/user`} className='mr-5'><i class="fa-solid fa-user" style={{ fontSize: '30px', color: 'white' }}></i></Link>
+                <Link to={`/user`} className='mr-2'><i class="fa-solid fa-user" style={{ fontSize: '30px', color: 'white' }}></i></Link>
               </Nav.Link>
                 
             </>
           ) : (
-            <button className="btn btn-primary ml-3">
+            <button variant='outline-secondary'className="btn btn-dark ml-3">
               <Link to="/login" style={{ color: 'white', textDecoration: 'none' ,float:'left'}}>Login</Link>
             </button>
+            
 
           )}
-
+          <Nav.Link >
+                <Link to={`/orderpage`} className='mr-3 '  style={{ color: "white", textDecoration: "none" }}>Order</Link>
+              </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

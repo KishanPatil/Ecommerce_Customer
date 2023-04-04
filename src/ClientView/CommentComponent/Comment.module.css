@@ -1,0 +1,13 @@
+.container{
+    margin-top: 10%;
+    background-color: #3b3a3a;
+    height: 60%;
+    width: 30%;
+    
+}
+.card{
+    background-color: #3b3a3a; 
+    border:none;
+    color: white;
+    width: 30%;
+}

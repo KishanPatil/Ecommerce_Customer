@@ -22,6 +22,7 @@ import LG from '../Images/Brands/LG.jfif';
 import bosch from '../Images/Brands/bosch.png';
 import Panasonic from '../Images/Brands/Panasonic.png';
 import mi from '../Images/Brands/mi.png'
+import { SingleProductView } from '../../SingleProductView/SingleProductView';
 // import Product from '../../Product/ProductList';
 
 
@@ -51,24 +52,18 @@ export default function MainContent() {
 
         <div className={css.MainContent}>
             {/* Categories display */}
-            <div className={css.card} style={{ backgroundColor: "black" }}>
+            <div className={css.card} style={{ backgroundColor: "#303030" }}>
                 <div className='ml-3 mr-3 mt-5' style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '3rem' }}>
                 
                     {categoryData.slice(0,4).map((category) => (
                         <div className='category-card' key={category._id}>
                             <img className='card' src={category.image} alt={category.CategoryName} onClick={() => handleCategoryClick(category._id)} style={{ width: '100%', height: '100%' }} />
                             {/* <h3 className='mt-1 mb-2 text-primary'  >{category.CategoryName}</h3> */}
-                            <h4 className='mt-1 ml-2 mb-1 text-light'  >{category.CategoryName}</h4>
+                            <h5 className='mt-1 ml-2 mb-1 text-light text-center'  >{category.CategoryName}</h5>
                         </div>))}
                     
             </div>
             </div> 
-
-            {/* Trying to link the image to page  */}
-            {/* <div className='card' style={{backgroundColor:"black"}}>
-                <NavLink to="/product"><img className="card-img-top" id="img" src={PhoneCategory} alt="Card image cap" /></NavLink>                
-            </div> */}
-
 
             {/* Product displaying */}
             <div className={css.card_block}>
@@ -83,19 +78,19 @@ export default function MainContent() {
                      
             </div>
             
-             <div className={`${css.card} ${css.brand_card}`} style={{ backgroundColor: "black" }}>
-                {/* <img className="card-img-top" id="brandimg" src={boat} alt="Card image cap" /> */}
-                {/* <img className={`card-img-top ${css.brandimg}`} src={apple} alt="Card image cap" />
+             {/* <div className={`${css.card} ${css.brand_card}`} style={{ backgroundColor: "#303030" }}>
+                <img className="card-img-top" id="brandimg" src={boat} alt="Card image cap" />
+                 <img className={`card-img-top ${css.brandimg}`} src={apple} alt="Card image cap" />
                 <img className={`card-img-top ${css.brandimg}`} src={canon} alt="Card image cap" />
                 <img className={`card-img-top ${css.brandimg}`} src={sony} alt="Card image cap" />
                 <img className={`card-img-top ${css.brandimg}`} src={Panasonic} alt="Card image cap" />
                 <img className={`card-img-top ${css.brandimg}`} src={LG} alt="Card image cap" />
                 <img className={`card-img-top ${css.brandimg}`} src={samsung} alt="Card image cap" />
-                <img className={`card-img-top ${css.brandimg}`} src={mi} alt="Card image cap" /> */}
-            </div> 
+                <img className={`card-img-top ${css.brandimg}`} src={mi} alt="Card image cap" /> 
+            </div>  */}
 
             {/* All products */}
-            {/* <Product/> */}
+            
         </div>
     );
 }

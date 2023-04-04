@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 export default function Carousal(){
     return(
-        <Carousel style={{height:"380px",width:"1150px" ,marginLeft:"70px"}}>
+        <Carousel style={{height:"380px",width:"1150px" ,marginLeft:"4%"}}>
         <Carousel.Item>
           <img
             className="d-block"

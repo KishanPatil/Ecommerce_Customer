@@ -5,21 +5,23 @@
     
 }
 .card {
-    margin-top: 60px;
+    margin-top: 30px;
     height: 60px;
     margin-left: 30px;
     display: flex;
     flex-direction: row;
-    background-color: black;
+    /* background-color: black; */
+    border: none;
+    margin-bottom: -4%;
 }
 #img{
     height: 200px;
     width: 170px;
-    background-color: black;
+    
 }
-.category_card{
+/* .category_card{
     background-color: black;
-}
+} */
 
 .card_block{
     margin-top: 15rem;
@@ -30,7 +32,7 @@
 .sub_card{
     display: flex;
     flex-direction: row;
-    margin-top: 30px;
+    margin-top: 1%;
 }
 .card_block img{
     margin-left: 30px;
@@ -39,7 +41,7 @@
     border-radius: 20px;
 }
 
-.brandimg{
+/* .brandimg{
     height: 20px;
     width: 2rem;
     background-color: black;
@@ -49,4 +51,4 @@
 #brand_card{
     margin-left: 40px;
     margin-top: -70px;
-}
+} */

@@ -5,6 +5,7 @@ Import All these :
     >> npm i bootstrap -s
     >>npm i axios -s   // for backend integration
     >>npm install react-bootstrap bootstrap  //react bootstrap
+    >> npm i font-awesome-icons // font awesmoe icon
 
 
 

@@ -36,7 +36,7 @@ const ProductList = () => {
           <div className='ml-3 mr-3' style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '3rem' }}>
             {productData.map((product) => (
               <Link to={`/singleproduct/${product._id}`} style={{textDecoration:'none'}}>
-                <div className="card ml-4" style={{ height: '100%', border: 'none' }}>
+                <div className="card ml-4" style={{ height: '100%', border: 'none'}}>
                   <div className="card-head" style={{ backgroundColor: '#1e1e1e' }}>
                     <img className="mt-5 ml-5 " src={product.image} alt={product.Name} style={{ maxWidth: '60%', maxHeight: '70%' }} />
                   </div>

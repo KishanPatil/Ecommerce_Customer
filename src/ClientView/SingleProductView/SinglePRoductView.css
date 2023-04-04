@@ -1,21 +1,29 @@
 .cart-body{
-    font-size: 12px;
+    font-size: 10px;
 }
 .productDescription{
-    background-color: white;
-    color: black;
+    background-color: #3b3a3a;
+    color: white;
    font-size: 20px;
-   margin-top: 10px;
+   margin-top: 4px;
 }
 
 .description{
     broder: 2px solid #808080;
 }
 .product_image{
-    background-color: black;
+    background-color: #303030;
 }
 .cart-card{
 
         margin-left: 140px;
         width: 75%;
+}
+.policieStyle{
+    font-size: 16px;
+}
+
+.card-style{
+    background-color: #3b3a3a;
+    border: none;
 }
