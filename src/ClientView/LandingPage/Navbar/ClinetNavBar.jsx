@@ -83,7 +83,9 @@ export default function ClientNavBar({ onSearch, onSearchClick }) {
               <Nav.Link>
                 <Link to={`/user`} className='mr-2'><i class="fa-solid fa-user" style={{ fontSize: '30px', color: 'white' }}></i></Link>
               </Nav.Link>
-                
+              <Nav.Link >
+                <Link to={`/orderpage`} className='mr-3 '  style={{ color: "white", textDecoration: "none" }}>Order</Link>
+              </Nav.Link>
             </>
           ) : (
             <button variant='outline-secondary'className="btn btn-dark ml-3">
@@ -92,9 +94,7 @@ export default function ClientNavBar({ onSearch, onSearchClick }) {
             
 
           )}
-          <Nav.Link >
-                <Link to={`/orderpage`} className='mr-3 '  style={{ color: "white", textDecoration: "none" }}>Order</Link>
-              </Nav.Link>
+         
         </Navbar.Collapse>
       </Container>
     </Navbar>

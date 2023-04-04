@@ -85,8 +85,8 @@ export const SingleProductView = () => {
           {/* <Col md={3}> */}
           <ListGroupItem className='productDescription' id='description'>
             <Row className='productDescription'>
-              <Col className='productDescription  '> <b>Status:</b></Col>
-              <Col className='productDescription' style={{ marginLeft: '-73%' }}>
+              <Col className='productDescription ml-4 '> <b>Status:</b></Col>
+              <Col className='productDescription' style={{ marginLeft: '-68%' }}>
                 {product.Quantity > 0 ? 'In Stock' : 'Out of Stock'}
               </Col>
             </Row>
@@ -108,7 +108,7 @@ export const SingleProductView = () => {
             <div className="card" style={{ width: '180rem',border:'none'}}>
               <Row className='card-style'>
                 <Col md={2}>
-                  <i class="fa-light fa-truck"></i>
+                  <i className="fa-light fa-truck ml-4"></i>
                 </Col>
                 <Col>
                   <label className='policieStyle'>Free Shiping</label>
@@ -116,7 +116,7 @@ export const SingleProductView = () => {
               </Row>
               <Row className='card-style'>
                 <Col md={2}>
-                <i class="fa-light fa-handshake"></i>
+                <i className="fa-light fa-handshake ml-4"></i>
                 
                 </Col>
                 <Col>

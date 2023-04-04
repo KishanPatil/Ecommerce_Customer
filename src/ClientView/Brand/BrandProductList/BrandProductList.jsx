@@ -37,10 +37,10 @@ const ProductList = () => {
             {productData.map((product) => (
               <Link to={`/singleproduct/${product._id}`} style={{textDecoration:'none'}}>
                 <div className="card ml-4" style={{ height: '100%', border: 'none'}}>
-                  <div className="card-head" style={{ backgroundColor: '#1e1e1e' }}>
+                  <div className="card-head" style={{ backgroundColor: '#3b3a3a' }}>
                     <img className="mt-5 ml-5 " src={product.image} alt={product.Name} style={{ maxWidth: '60%', maxHeight: '70%' }} />
                   </div>
-                  <div className="card-body" style={{ backgroundColor: '#1e1e1e' }}>
+                  <div className="card-body" style={{ backgroundColor: '#3b3a3a' }}>
                     <div className="product-card" key={product._id}>
 
                       <h3 className='mt-3 mb-2 text-light text-center' style={{ fontSize: '15px' }}>{product.Name}</h3>
@@ -49,7 +49,7 @@ const ProductList = () => {
 
                     </div>
                   </div>
-                  <div className="card-footer" style={{ backgroundColor: '#1e1e1e' }}>
+                  <div className="card-footer" style={{ backgroundColor: '#3b3a3a' }}>
                     <button className="btn btn-primary ml-5">View More</button>
                   </div>
                 </div>

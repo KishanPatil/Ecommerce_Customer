@@ -1,12 +1,17 @@
 .register-body{
   background-color: white;
-  width: 50%;
-  margin-left: 27%;
+  width: 70%;
+  margin-left: 16%;
   margin-top: 30px;
   font-size: 20px;
+  border-radius: 4%;
+}
+.register-body .sub-container{
+    display: flex;
+    flex-direction: row;
 }
 .register-body label{
-  font-size: 20px;
+  font-size: 50%;
 }
 
 .btn-color{
@@ -30,17 +35,22 @@
   a{
     text-decoration: none;
   }
+  .address-design .register-input{
+    height: 50%;
+    width: 50%;
+    font-size: 50%;
+  }
 
   .register-input{
-    height: 40px;
-    width: 90%;
-    font-size: 20px;
+    height: 50%;
+    width: 50%;
+    font-size: 50%;
   }
   .btns{
     display: inline;
   }
   .btns button{
-    margin-left: 20px;
+    margin-left: 10%;
     width: 30%;
     margin-bottom: 17px;
     margin-top: 20px;
