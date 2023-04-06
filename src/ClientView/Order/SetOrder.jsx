@@ -11,8 +11,11 @@ import axios from 'axios';
 export default function SetOrder() {
 
     const customerId = localStorage.getItem('customerId');
-
-
+    const token = localStorage.getItem('token');
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': token
+    };
 
     const [Customer, setCustomer] = useState([]);
 
@@ -43,7 +46,7 @@ export default function SetOrder() {
 
         }
         async function fetchCart() {
-            const mycart = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`);;
+            const mycart = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});;
             console.log("cart of Customer ", mycart.data);
             setCart(mycart.data);
 
@@ -120,7 +123,7 @@ export default function SetOrder() {
                 console.log("Product added to order")
 
                 console.log(temp_obj);
-                alert("done")
+                // alert("done")
             })
 
            

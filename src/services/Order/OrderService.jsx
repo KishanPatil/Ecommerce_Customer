@@ -1,5 +1,11 @@
 import axios from 'axios';
 const baseUrl="http://localhost:3009";
+const token = localStorage.getItem('token');
+const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': token
+  };
+
 const getAllOrders = async(setState) =>{
     try{
         const response = await axios.get(`${baseUrl}/order/orders`)
@@ -12,7 +18,9 @@ const getAllOrders = async(setState) =>{
 
 const deleteOrderById = async(id) =>{
     try{
-        const response = await axios.delete(`${baseUrl}/order/orders/${id}`);
+        const response = await axios.delete(`${baseUrl}/order/orders/${id}`,
+            {headers: headers}
+        );
         // console.log(response.data)
         return response.data;
         }
@@ -34,7 +42,9 @@ const cancelOrderStatus = async(id, newOrderObj) =>{
         console.log("Status changed!111111!")
         console.log("id is : ", id)
         console.log("new Obj is : ", newOrderObj)
-        const response = await axios.put(`${baseUrl}/order/orders/${id}`, {newOrderObj})
+        const response = await axios.put(`${baseUrl}/order/orders/${id}`, newOrderObj,
+            {headers: headers}
+        )
         
         console.log("Status changed!!")
         return response.data;
@@ -45,7 +55,9 @@ const cancelOrderStatus = async(id, newOrderObj) =>{
 }
 const getOrderById = async(id ) => {
     try{
-        const response = await axios.get(`${baseUrl}/order/orders/${id}`);
+        const response = await axios.get(`${baseUrl}/order/orders/${id}`, 
+            {headers: headers}
+        );
         // console.log(response.data)
         return response.data;
         }
@@ -58,7 +70,9 @@ const getOrderByCustomerId = async(customerid ) => {   // Added
     try{
         // const response = await axios.get(`${baseUrl}/order/ordersbycustomerid/${customerid}`);
         // console.log(response.data)
-        const response = await axios.get(`${baseUrl}/order/getordersbycustomerid/${customerid}`)
+        const response = await axios.get(`${baseUrl}/order/getordersbycustomerid/${customerid}`,
+            {headers: headers}
+        )
         return response.data;
         }
         catch(e){

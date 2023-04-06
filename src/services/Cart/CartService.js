@@ -3,6 +3,7 @@ import axios from 'axios';
 // Define the base URL for the API
 const baseurl = "http://localhost:3009";
 
+
 /**
  * Sends a GET request to the server to retrieve all carts
  * @returns {Object} response data

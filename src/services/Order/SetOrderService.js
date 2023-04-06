@@ -1,5 +1,10 @@
 import axios from 'axios';
 const baseUrl="http://localhost:3009";
+const token = localStorage.getItem('token');
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': token
+  };
 
 const getAllOrders = async(setState) =>{
     try{
@@ -25,7 +30,7 @@ const getCustomerById = async(customerid) => {
 const getCartByCuatomerId = async(customerid) => {
     try{
         console.log("this is customer id")
-        const response = await axios.get(`${baseUrl}/cart/getcartbycustomerid/${customerid}`);
+        const response = await axios.get(`${baseUrl}/cart/getcartbycustomerid/${customerid}`, {headers: headers});
         console.log("cart data",response.data)
         return response.data;
         }
@@ -36,7 +41,7 @@ const getCartByCuatomerId = async(customerid) => {
 
 const getOrderByCustomerId = async(customerid ) => {
     try{
-        const response = await axios.get(`${baseUrl}/order/getorderbycustomerid/${customerid}`);
+        const response = await axios.get(`${baseUrl}/order/getorderbycustomerid/${customerid}`, {headers: headers});
         // console.log(response.data)
         return response.data;
         }

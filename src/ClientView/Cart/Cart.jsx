@@ -6,11 +6,15 @@ import { Link } from 'react-router-dom';
 export const Cart = () => {
   const [cart, setCart] = useState(null);
   const customerId = localStorage.getItem('customerId');
-
+  const token = localStorage.getItem('token');
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': token
+  };
   useEffect(() => {
     const fetchCart = async () => {
       try {
-        const response = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`);
+        const response = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});
         console.log(response.data)
         setCart(response.data);
       } catch (error) {
@@ -26,7 +30,7 @@ export const Cart = () => {
       const response = await axios.delete(`http://localhost:3009/cart/removefromcart/${customerId}/${productId}`);
       console.log(response);
       alert('Removed from cart successfully');
-      const response2 = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`);
+      const response2 = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});
       console.log(response2.data)
       setCart(response2.data);
     } catch (error) {
@@ -37,7 +41,7 @@ export const Cart = () => {
     try {
       const response = await axios.put(`http://localhost:3009/cart/updatequantity/${customerId}/${productid}/${quantity + 1}`);
       console.log("increases succesfully", response);
-      const response2 = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`);
+      const response2 = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});
       console.log(response2.data)
       setCart(response2.data);
     } catch (error) {
@@ -52,7 +56,7 @@ export const Cart = () => {
       }
       const response = await axios.put(`http://localhost:3009/cart/updatequantity/${customerId}/${productid}/${quantity - 1}`);
       console.log(response);
-      const response2 = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`);
+      const response2 = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});
       console.log(response2.data)
       setCart(response2.data);
     } catch (error) {

@@ -15,8 +15,10 @@ function UserLogin() {
     try {
       const response = await axios.get(`http://localhost:3009/customer/email?email=${email}&password=${password}`);
       console.log(response.data);
-
+      localStorage.setItem('token', response.data.token);
+      console.log("TOKEN IS: ",response.data.token)
       const {isValid} = response.data
+      console.log(localStorage.getItem('token'));
 
       if(!isValid){
         window.alert("Invalid Email | Password")
