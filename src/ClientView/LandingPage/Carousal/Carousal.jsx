@@ -6,8 +6,8 @@ export default function Carousal(){
         <Carousel style={{height:"380px",width:"1150px" ,marginLeft:"4%"}}>
         <Carousel.Item>
           <img
-            className="d-block"
-            src="https://www.eiosys.com/wp-content/uploads/2021/11/blog-15-Best-Email-Marketing-tools-in-2021.png"
+            className="d-block rounded-3"
+            src="https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1680689020/Croma%20Assets/CMS/Homepage%20Banners/HP%20Rotating/2023/HP_EssentialCombo_27March2023_jmwooa.jpg/mxw_2048,f_auto"
             alt="First slide"
             style={{height:"380px",width:"1150px"}}
           />
@@ -18,8 +18,8 @@ export default function Carousal(){
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
-            src="https://media.nedigital.sg/fairprice/images/d73e902e-c047-4bf2-84cc-c21da7d21326/MP-GadgetsLand-LandingBanner-Feb2021.jpg?q=70"
+            className="d-block rounded-3"
+            src="https://www.eiosys.com/wp-content/uploads/2021/11/blog-15-Best-Email-Marketing-tools-in-2021.png"
             alt="Second slide"
             style={{height:"380px",width:"1150px"}}
           />
@@ -31,8 +31,8 @@ export default function Carousal(){
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block"
-            src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/big-gadget-sale-design-template-33c6c8e6f1e51bb2b276280ba5562b82_screen.jpg?ts=1652171462"
+            className="d-block rounded-3"
+            src="https://d2d22nphq0yz8t.cloudfront.net/88e6cc4b-eaa1-4053-af65-563d88ba8b26/https://media.croma.com/image/upload/v1680533646/Croma%20Assets/CMS/LP%20Page%20Banners/2023/Gifting%20Store%20-%20April/HP%20Rotating%20Banners/HP_GiftingStore_3April2023_txfs3z.jpg/mxw_2048,f_auto"
             alt="Third slide"
             style={{height:"380px",width:"1150px"}}
           />

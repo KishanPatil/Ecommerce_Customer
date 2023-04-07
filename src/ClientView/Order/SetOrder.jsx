@@ -7,9 +7,20 @@ import { getCustomerById, getOrderByCustomerId, getCartByCuatomerId } from '../.
 // import ClientNavBar from '../LandingPage/Navbar/ClinetNavBar';
 import ClientNavBar from '../LandingPage/Navbar/ClinetNavBar';
 import axios from 'axios';
+import { createPaymentService } from '../../services/Payment/PaymentService';
+import { Elements } from '@stripe/react-stripe-js';
+
+import { loadStripe } from '@stripe/stripe-js';
+
+import { PaymentElement } from '@stripe/react-stripe-js';
+
+const stripePromise = loadStripe('pk_test_51MrHZkSBXFZ8OGxd4H8wh5XznpIurol68HQa755scZNN6dNogkmfmwOX87F4OqXZ93l67Y6cqK5ujMLb3XXHue8400576hUKVX');
 
 export default function SetOrder() {
-
+    
+    const cartid = localStorage.getItem('cartid');
+    const total = localStorage.getItem('total');
+    
     const customerId = localStorage.getItem('customerId');
     const token = localStorage.getItem('token');
     const headers = {
@@ -20,7 +31,7 @@ export default function SetOrder() {
     const [Customer, setCustomer] = useState([]);
 
     const [cart, setCart] = useState([]);
-
+    const [stripeToken, setStripeToken] = useState("")
 
     const [street, setStreet] = useState("");
     const [city, setCity] = useState("");
@@ -28,17 +39,15 @@ export default function SetOrder() {
     const [pin, setPin] = useState();
     const [payment, setPayment] = useState("");
 
-
     const navigate = useNavigate();
 
     console.log(Customer, " thi9s ois customer data Customer")
 
     console.log(cart, "this is cart data")
 
-
     useEffect(() => {
         async function fetchCustomer() {
-            const Customerdata = await axios.get(`http://localhost:3009/customer/getCustomerById/${customerId}`);
+            const Customerdata = await axios.get(`http://localhost:3009/customer/getCustomerById/${customerId}`, { headers });
             console.log(Customerdata.data)
             console.log("customer data in SetOrder : ", Customerdata.data)
             setCustomer(Customerdata.data);
@@ -46,13 +55,18 @@ export default function SetOrder() {
 
         }
         async function fetchCart() {
-            const mycart = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});;
+            const mycart = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, { headers: headers });;
             console.log("cart of Customer ", mycart.data);
+            console.log("cart of price ");
             setCart(mycart.data);
+
+            console.log("mycart data here ====>>>> "+mycart.data)
+            createPayment(mycart.data, total)
 
         }
         fetchCart();
         fetchCustomer();
+
 
     }, []);
 
@@ -71,6 +85,7 @@ export default function SetOrder() {
         // alert(payment);
         alert("Order placed successfully !!");
         navigate("/orderpage");
+        // navigate('/order')
 
     }
 
@@ -103,7 +118,25 @@ export default function SetOrder() {
     }
     /*
     
+
+
     */
+    const createPayment = async (cart, total) => {
+        console.log("cart and total =====>  " + cart, total)
+        try {
+            createPaymentService(cart, total)
+                .then(res => res.json())
+                .then(data => {
+                    console.log('stripetoekn ====>', data.clientSecret)
+                    setStripeToken(data.clientSecret)
+
+                })
+
+        } catch (error) {
+            console.log('Error to connect to stripe payment')
+        }
+    }
+
     const PostDataToOrder = async () => {
 
         cart.products.map(async (val) => {
@@ -126,12 +159,12 @@ export default function SetOrder() {
                 // alert("done")
             })
 
-           
+
             // goToOrder();
         })
         // await axios.delete(`http://localhost:3009/cart/removefromcart/${customerId}`)
 
-        
+
 
         goToOrder();
     }
@@ -143,9 +176,9 @@ export default function SetOrder() {
         <>
             <div className='' >
                 <ClientNavBar />
-                <div className='row mt-5' style={{ "color": "white" , marginLeft:'10%'}}>
+                <div className='row mt-5' style={{ "color": "white", marginLeft: '10%' }}>
 
-                    <div className="col-sm-5 mx-3   border" style={{backgroundColor:'#1e1e1e'}}>
+                    <div className="col-sm-5 mx-3   border" style={{ backgroundColor: '#1e1e1e' }}>
                         <h4> Delivery address:- </h4>
 
                         <form onSubmit={submitAddress}>
@@ -187,25 +220,46 @@ export default function SetOrder() {
                     </div>
 
 
+                    {stripeToken != "" && (
+                        <div className="col-sm-5 mx-3 text-center  border" style={{ backgroundColor: '#1e1e1e' }}>
+                            <h4 className='mb-4'> select payment method :- </h4>
+                            {console.log('elements stripe token -|->>>>>', { clientSecret: stripeToken })}
+                            <Elements options={{
+                                clientSecret: stripeToken
+                            }} stripe={stripePromise}>
+                                <PaymentElement />
+                                {/* <button className="btn btn-success px-5 mx-5" onClick={PostDataToOrder} > Place Order </button>
+                                <button type="button" class="btn btn-success" onClick={(e) => {
+                                    e.preventDefault()
+                                    goToOrder()
+                                }} > Place Orader
 
-                    <div className="col-sm-5 mx-3 text-center  border" style={{backgroundColor:'#1e1e1e'}}>
-                        <h4 className='mb-4'> select payment method :- </h4>
-
-                        <div onChange={onChangePayment}>
-                            <input type="radio" value="UIP" name="payment" /> <img src="https://images.news18.com/ibnlive/uploads/2020/02/UPI.jpg?impolicy=website&width=510&height=356" width="125" height="50" alt="" /> <br />UPI <br />
-                            <input type="radio" value="Credit Card" name="payment" /> <img src="https://cdn-icons-png.flaticon.com/512/893/893081.png" width="125" height="100" alt="" /> <br />Credit Card <br />
-                            <input type="radio" value="Cash_On_delivery" name="payment" /> <img src="https://cdn-icons-png.flaticon.com/512/1554/1554406.png" width="125" height="100" alt="" /> <br />Cash on delivery  <br />
-                        </div>
-                        <hr className='hr' />
-                        <div className="d-flex px-5 justify-content-center">
-                            <button className="btn btn-success px-5 mx-5" onClick={PostDataToOrder} > Place Order </button>
-                            {/* <button type="button" class="btn btn-success" onClick={(e) => {
+                                </button> */}
+                            </Elements>
+                            <button className="btn btn-success px-5 mx-5 mt-5" onClick={PostDataToOrder} > Place Order </button>
+                            {/* <button type="button" class="btn btn-success mt-5" onClick={(e) => {
                                 e.preventDefault()
-                                goToOrder() }} > Place Orader
-                </button> */}
-                        </div>
+                                goToOrder()
+                            }} > Cancel 
 
-                    </div>
+                            </button> */}
+                            {/* <div onChange={onChangePayment}>
+                                                <input type="radio" value="UIP" name="payment" /> <img src="https://images.news18.com/ibnlive/uploads/2020/02/UPI.jpg?impolicy=website&width=510&height=356" width="125" height="50" alt="" /> <br />UPI <br />
+                                                <input type="radio" value="Credit Card" name="payment" /> <img src="https://cdn-icons-png.flaticon.com/512/893/893081.png" width="125" height="100" alt="" /> <br />Credit Card <br />
+                                                <input type="radio" value="Cash_On_delivery" name="payment" /> <img src="https://cdn-icons-png.flaticon.com/512/1554/1554406.png" width="125" height="100" alt="" /> <br />Cash on delivery  <br />
+                                            </div>
+                                            <hr className='hr' />
+                                            <div className="d-flex px-5 justify-content-center">
+                                                <button className="btn btn-success px-5 mx-5" onClick={PostDataToOrder} > Place Order </button>
+                                                {/* <button type="button" class="btn btn-success" onClick={(e) => {
+                                                    e.preventDefault()
+                                                    goToOrder() }} > Place Orader
+                                            </div>
+                                    </button> */}
+
+                        </div>
+                    )}
+
                     <p></p>
                     <hr className='hr' />
 

@@ -49,5 +49,14 @@ const getOrderByCustomerId = async(customerid ) => {
             console.log(e)
         }
 }
-
-export {getCustomerById, getOrderByCustomerId, getAllOrders, getCartByCuatomerId}
+//new
+const findOrderByIdService = async (order) => {
+    try {
+        const response = await fetch(`${baseUrl}/${order}`)
+        const order2 = await response.json()
+        return order2
+    } catch (error) {
+        throw new Error(error)
+    }
+}
+export {getCustomerById, getOrderByCustomerId, getAllOrders, getCartByCuatomerId,findOrderByIdService}

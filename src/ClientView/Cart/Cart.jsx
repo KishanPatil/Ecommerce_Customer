@@ -16,6 +16,9 @@ export const Cart = () => {
       try {
         const response = await axios.get(`http://localhost:3009/cart/getcartbycustomerid/${customerId}`, {headers: headers});
         console.log(response.data)
+        console.log(response.data._id)
+        // const cartid = localStorage.getItem('customerId');
+        localStorage.setItem('cartid', response.data._id);
         setCart(response.data);
       } catch (error) {
         console.error(error);
@@ -70,7 +73,7 @@ export const Cart = () => {
       <h4 className='text-white text-center'> Your cart is Empty</h4></p>;
   }
 
-  if (cart.products.length === 0) {
+  if (cart.products?.length === 0) {
     <ClientNavBar />
     return <>
       <ClientNavBar />
@@ -78,6 +81,7 @@ export const Cart = () => {
     </>
   }
   const total = cart.products.reduce((acc, product) => acc + product.quantity * product.productid.Price, 0);
+  localStorage.setItem('total',total);
   return (
     <div className=''>
       <ClientNavBar />

@@ -52,7 +52,7 @@ export default function ClientNavBar({ onSearch, onSearchClick }) {
             <Nav.Link ><Link className=' ml-2' to='/category' style={{ color: "white", textDecoration: "none" }}> Category</Link></Nav.Link>
             <Nav.Link ><Link className=' ml-2' to='/brand' style={{ color: "white", textDecoration: "none" }}> Brand</Link></Nav.Link>
 
-            {/* <Nav.Link href="#" style={{ color: "white", textDecoration: "none" }}>Contact Us</Nav.Link> */}
+            <Nav.Link href="#" style={{ color: "white", textDecoration: "none" }}><Link className=' ml-2' to='/aboutus' style={{ color: "white", textDecoration: "none" }}> About Us </Link></Nav.Link>
           </Nav>
           <Form onSubmit={handleSubmit} className="d-flex justify-content-center ml-5" style={{ color: 'white', textDecoration: 'none' }}>
             <Form.Control

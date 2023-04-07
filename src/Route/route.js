@@ -17,12 +17,16 @@ import OrderPage from '../ClientView/Order/OrderPage'
 import SetOrder from '../ClientView/Order/SetOrder'
 import Product from '../ClientView/Product/ProductList'
 import UpdateUserProfile from '../ClientView/UserLogin/UpdateUserProfile';
-import EmailOTP from '../ClientView/UserLogin/EmailOTP'
+import EmailOTP from '../ClientView/UserLogin/EmailOTP';
+import OrderComponent from '../ClientView/Checkout/CheckoutForm';
+import PaymentComponent from '../ClientView/Payment/Payment';
+
 const route = createBrowserRouter([
     { path: '', element: <HomePage /> }, 
     { path: 'login', element: <UserLogin /> }, 
     { path: 'register', element: <UserRegister /> }, 
     { path: 'otp', element: <EmailOTP /> }, 
+    { path: 'aboutus', element: <AboutUs /> }, 
 
     { path: 'cart', element: <Cart /> },
     { path: 'category', element: <Category /> }, 
@@ -37,7 +41,9 @@ const route = createBrowserRouter([
     { path: 'brandproductlist/:id', element: <BrandProductList /> },
     { path: 'search/:name',element: <SearchProduct/> },
     { path: 'singleproduct/:id', element: <SingleProductView /> },
-    { path: '/mobile', element: <ProductListing/> },
+    { path: '/mobile', element: <ProductListing /> },
+    { path: 'checkout/:orderId', element: <OrderComponent /> },
+    { path: 'payment', element: <PaymentComponent/> },
 ]);
 
 export { route }

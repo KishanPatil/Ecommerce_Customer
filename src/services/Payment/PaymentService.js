@@ -68,9 +68,29 @@ const getPaymentById = async(id ) => {
         }
 }
 
+const baseUrl = 'http://localhost:3009/payment/'
+
+const createPaymentService = async (cartid, total) => {
+    return fetch(baseUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cartid: cartid , total }),
+    })
+}
+const createPayment = async(id ) => {
+    try{
+        const response = await axios.get(`${baseurl}/payment/`);
+        console.log(response.data)
+        return response.data;
+        }
+        catch(e){
+            console.log(e)
+        }
+}
 export {
     getAllPayments,
     deletePaymentById,
     getPaymentById,
-    updatePaymentById
+    updatePaymentById,
+    createPaymentService
 }
